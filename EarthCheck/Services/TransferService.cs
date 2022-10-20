@@ -4,9 +4,9 @@ public class TransferService : ITransferService
 {
 	public void TransferAmount(Account accountFrom, Account accountTo, decimal amount)
 	{
-		checkAmountValidity(accountFrom, accountTo, amount);
+		CheckAmountValidity(accountFrom, accountTo, amount);
 
-		checkSourceAccountCoverage(accountFrom, accountTo, amount);
+		CheckSourceAccountCoverage(accountFrom, accountTo, amount);
 
 		try
 		{
@@ -21,13 +21,13 @@ public class TransferService : ITransferService
 
 	}
 
-	private void checkSourceAccountCoverage(Account accountFrom, Account accountTo, decimal amount)
+	private void CheckSourceAccountCoverage(Account accountFrom, Account accountTo, decimal amount)
 	{
 		if (accountFrom.Balance < amount)
 			throw new TransferService_AccountHasNoCoverage_Exception(accountFrom, accountTo, amount);
 	}
 
-	private void checkAmountValidity(Account accountFrom, Account accountTo, decimal amount)
+	private void CheckAmountValidity(Account accountFrom, Account accountTo, decimal amount)
 	{
 		if (amount <= 0)
 			throw new TransferService_ZeroOrNegativeAmount_Exception(accountFrom, accountTo, amount);
