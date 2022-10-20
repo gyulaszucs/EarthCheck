@@ -1,0 +1,5 @@
+I have taken the TDD approach and implement the service for the first task, then for the second.
+Different service that implements the same interface so it will be easy to swap.
+Added three lines of comment regarding the overdraft fee, as I believe it should come from configuration or database.
+
+Also, used decimals instead of doubles as to my best knowledge it is the recommended type in financial applications as it results in more precise numbers.
